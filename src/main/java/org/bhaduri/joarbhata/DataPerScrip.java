@@ -17,8 +17,27 @@ import org.bhaduri.nouka.DTO.ListScripData;
 public class DataPerScrip {
     public static final int NIFTYFIFTYCOUNT=51;
     
-    public List<ScripData> getDataPerScripId(ScripData scripid){
-                
+    public ListScripData getDataPerScripId(ScripData scripid) {
+        ListScripData listScripData = new ListScripData();
+        List<ScripData> scripDatas = new ArrayList<>();
+        MasterDataService masterDataService = new MasterDataService();
+        listScripData = masterDataService.getDataForScripID(scripid);
+        scripDatas = listScripData.getScripdatalist();
+        
+        for (int i = 0; i < scripDatas.size(); i++) {            
+            ScripData scripData = new ScripData();
+            scripData.setScripId(scripDatas.get(i).getScripId());
+            scripData.setLastUpdateTime(scripDatas.get(i).getLastUpdateTime());
+            scripData.setDayHighPrice(scripDatas.get(i).getDayHighPrice());
+            scripData.setDayLastPrice(scripDatas.get(i).getDayLastPrice());
+            scripData.setDayLowPrice(scripDatas.get(i).getDayLowPrice());
+            scripData.setOpenPrice(scripDatas.get(i).getOpenPrice());
+            scripData.setPrevClosePrice(scripDatas.get(i).getPrevClosePrice());
+            scripData.setTotalTradedVolume(scripDatas.get(i).getTotalTradedVolume());
+            scripDatas.add(scripData);
+        }
+        listScripData.setScripdatalist(scripDatas);
+        return listScripData;
     }
     
     public ListScripData getScripIdList() {
@@ -27,7 +46,7 @@ public class DataPerScrip {
         
         for (int i = 0; i < NIFTYFIFTYCOUNT; i++) {            
             ScripData scripData = new ScripData();
-            scripidlist.add(i, scripData);
+            scripidlist.add(scripData);
         }
         scripdatalist.setScripdatalist(scripidlist);
         MasterDataService masterDataService = new MasterDataService();
