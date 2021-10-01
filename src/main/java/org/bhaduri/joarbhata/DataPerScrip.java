@@ -17,19 +17,23 @@ import org.bhaduri.nouka.DTO.ListScripData;
 public class DataPerScrip {
     public static final int NIFTYFIFTYCOUNT=51;
     
-    public List<ScripData> getDataPerScripId(String scripid){
-        
+    public List<ScripData> getDataPerScripId(ScripData scripid){
+                
     }
     
     public ListScripData getScripIdList() {
-        List<ScripData> scripdatalist = new ArrayList<>();
-        for (int i = 0; i < NIFTYFIFTYCOUNT; i++) { 
-                ScripData scripData = new ScripData();
-                scripdatalist.add(i,scripData);
-            }
+        ListScripData scripdatalist = new ListScripData();
+        List<ScripData> scripidlist = new ArrayList<>();
+        
+        for (int i = 0; i < NIFTYFIFTYCOUNT; i++) {            
+            ScripData scripData = new ScripData();
+            scripidlist.add(i, scripData);
+        }
+        scripdatalist.setScripdatalist(scripidlist);
         MasterDataService masterDataService = new MasterDataService();
-        scripdatalist = masterDataService.getScripID();      
-
+        scripdatalist = masterDataService.getScripID();        
+        return scripdatalist;
+        
     }
 //    private ScripData loadScripId() {
 //        ScripData scripData = new ScripData();
