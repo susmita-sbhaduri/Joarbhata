@@ -18,8 +18,8 @@ public class DataPerScrip {
     public static final int NIFTYFIFTYCOUNT=51;
     
     public ListScripData getDataPerScripId(ScripData scripid) {
-        ListScripData listScripData = new ListScripData();
-        List<ScripData> scripDatas = new ArrayList<>();
+        ListScripData listScripData;
+        List<ScripData> scripDatas;
         MasterDataService masterDataService = new MasterDataService();
         listScripData = masterDataService.getDataForScripID(scripid);
         scripDatas = listScripData.getScripdatalist();
