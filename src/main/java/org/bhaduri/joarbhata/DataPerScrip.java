@@ -19,24 +19,23 @@ public class DataPerScrip {
     
     public ListScripData getDataPerScripId(ScripData scripid) {
         ListScripData listScripData;
-        List<ScripData> scripDatas;
         MasterDataService masterDataService = new MasterDataService();
         listScripData = masterDataService.getDataForScripID(scripid);
-        scripDatas = listScripData.getScripdatalist();
-        
-        for (int i = 0; i < scripDatas.size(); i++) {            
-            ScripData scripData = new ScripData();
-            scripData.setScripId(scripDatas.get(i).getScripId());
-            scripData.setLastUpdateTime(scripDatas.get(i).getLastUpdateTime());
-            scripData.setDayHighPrice(scripDatas.get(i).getDayHighPrice());
-            scripData.setDayLastPrice(scripDatas.get(i).getDayLastPrice());
-            scripData.setDayLowPrice(scripDatas.get(i).getDayLowPrice());
-            scripData.setOpenPrice(scripDatas.get(i).getOpenPrice());
-            scripData.setPrevClosePrice(scripDatas.get(i).getPrevClosePrice());
-            scripData.setTotalTradedVolume(scripDatas.get(i).getTotalTradedVolume());
-            scripDatas.add(scripData);
-        }
-        listScripData.setScripdatalist(scripDatas);
+//        scripDatas = listScripData.getScripdatalist();
+//        
+//        for (int i = 0; i < scripDatas.size(); i++) {            
+//            ScripData scripData = new ScripData();
+//            scripData.setScripId(scripDatas.get(i).getScripId());
+//            scripData.setLastUpdateTime(scripDatas.get(i).getLastUpdateTime());
+//            scripData.setDayHighPrice(scripDatas.get(i).getDayHighPrice());
+//            scripData.setDayLastPrice(scripDatas.get(i).getDayLastPrice());
+//            scripData.setDayLowPrice(scripDatas.get(i).getDayLowPrice());
+//            scripData.setOpenPrice(scripDatas.get(i).getOpenPrice());
+//            scripData.setPrevClosePrice(scripDatas.get(i).getPrevClosePrice());
+//            scripData.setTotalTradedVolume(scripDatas.get(i).getTotalTradedVolume());
+//            scripDatas.add(scripData);
+//        }
+//        listScripData.setScripdatalist(scripDatas);
         return listScripData;
     }
     
