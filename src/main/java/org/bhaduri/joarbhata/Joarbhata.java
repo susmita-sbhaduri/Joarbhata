@@ -13,7 +13,6 @@ public class Joarbhata {
     public static void main(String[] args){        
            CreateJoarBhata createJoarBhata = new CreateJoarBhata();
            createJoarBhata.deviseJoarBhata();
-           //kjhh
     }
     
 }
